@@ -3,7 +3,7 @@ const { Op } = require("sequelize");
 const { User, Product } = require("../models");
 const withAuth = require("../utils/auth");
 
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
     // get the product data
     const productData = await Product.findAll();
