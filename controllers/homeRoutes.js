@@ -4,9 +4,6 @@ const { User, Product } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
-  if (!req.session.logged_in) {
-    res.render("login");
-  }
   try {
     // get the product data
     const productData = await Product.findAll();
